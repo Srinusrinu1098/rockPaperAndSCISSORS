@@ -86,28 +86,32 @@ class Home extends Component {
             <Numbers>{result}</Numbers>
           </Results>
         </ResultDisplay>
-        <UnOrderList value={bool}>
-          {choicesList.map(each => (
-            <ListItem key={each.id} value={each.imageUrl}>
-              <Button
-                type="button"
-                data-testid={`${each.id.toLowerCase()}Button`}
-                onClick={() => this.getTheImage(each.id)}
-              >
-                <Image src={each.imageUrl} alt={each.id} />
-              </Button>
-            </ListItem>
-          ))}
-        </UnOrderList>
-        <ResultFlex bool={bool}>
-          <Result
-            myChoice={myChoice}
-            opponentChoice={opponentChoice}
-            newChoicesList={newChoicesList}
-            play={this.play}
-            bool={bool}
-          />
-        </ResultFlex>
+        {!bool && (
+          <UnOrderList value={bool}>
+            {choicesList.map(each => (
+              <ListItem key={each.id} value={each.imageUrl}>
+                <Button
+                  type="button"
+                  data-testid={`${each.id.toLowerCase()}Button`}
+                  onClick={() => this.getTheImage(each.id)}
+                >
+                  <Image src={each.imageUrl} alt={each.id} />
+                </Button>
+              </ListItem>
+            ))}
+          </UnOrderList>
+        )}
+        {bool && (
+          <ResultFlex bool={bool}>
+            <Result
+              myChoice={myChoice}
+              opponentChoice={opponentChoice}
+              newChoicesList={newChoicesList}
+              play={this.play}
+              bool={bool}
+            />
+          </ResultFlex>
+        )}
       </MainContainer>
     )
   }

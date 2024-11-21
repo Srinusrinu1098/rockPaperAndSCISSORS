@@ -4,6 +4,7 @@ import {
   MyHeading,
   MySelectedImg,
   PlayButton,
+  Con,
 } from './StyledComponent'
 
 const Result = props => {
@@ -18,19 +19,24 @@ const Result = props => {
   }
 
   return (
-    <ResultDisplayContainer>
-      <MyContainer>
-        <MyHeading>You</MyHeading>
-        <MySelectedImg src={myFinalChoice.imageUrl} alt="your choice" />$
-      </MyContainer>
-      <MyContainer>
-        <MyHeading>You</MyHeading>
-        <MySelectedImg src={opponentFinalChoice} alt="opponent choice" />
-      </MyContainer>
+    <Con>
+      <ResultDisplayContainer>
+        <MyContainer>
+          <MyHeading>You</MyHeading>
+          <MySelectedImg src={myFinalChoice[0].imageUrl} alt="your choice" />
+        </MyContainer>
+        <MyContainer>
+          <MyHeading>Opponent</MyHeading>
+          <MySelectedImg
+            src={opponentFinalChoice[0].imageUrl}
+            alt="opponent choice"
+          />
+        </MyContainer>
+      </ResultDisplayContainer>
       <PlayButton type="button" onClick={playAgain}>
         Play Again
       </PlayButton>
-    </ResultDisplayContainer>
+    </Con>
   )
 }
 

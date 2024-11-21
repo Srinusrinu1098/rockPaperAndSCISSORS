@@ -68,5 +68,5 @@ export const Button = styled.button`
   cursor: pointer;
 `
 export const ResultFlex = styled.div`
-  display: 'none';
+  margin-top: 50px;
 `
